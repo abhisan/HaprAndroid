@@ -19,17 +19,16 @@
         android:layout_height="wrap_content"
         android:background="#66000000"
         android:cacheColorHint="@android:color/transparent"
-        android:dividerHeight="1dp">
+        android:dividerHeight="1dp" >
     </ListView>
 
-    <com.example.coverflow.CoverFlow
+    <com.hapr.coverflow.CoverFlow
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/coverflow"
         android:layout_width="match_parent"
         android:layout_height="72dp"
         android:background="@null"
-        android:paddingBottom="0dp" >
-    </com.example.coverflow.CoverFlow>
+        android:paddingBottom="0dp" />
 
     <!--
          TextView

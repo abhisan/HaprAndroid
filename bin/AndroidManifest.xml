@@ -11,7 +11,7 @@
         android:label="@string/app_name"
         android:theme="@android:style/Theme.Light.NoTitleBar" >
         <activity
-            android:name=".HomeActivity"
+            android:name="com.hapr.activities.HomeActivity"
             android:label="@string/app_name" android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,37 +21,37 @@
         </activity>
         
         <activity
-            android:name=".FeedbackActivity"
+            android:name="com.hapr.activities.FeedbackActivity"
             android:label="@string/app_name" android:screenOrientation="portrait">
         </activity>
         
          <activity
-            android:name=".Activity_Eclair"
+            android:name="com.hapr.activities.Activity_Eclair"
             android:label="@string/app_name" android:screenOrientation="portrait">
         </activity>
         
          <activity
-            android:name=".Activity_Froyo"
+            android:name="com.hapr.activities.Activity_Froyo"
             android:label="@string/app_name" android:screenOrientation="portrait">
         </activity>
         
         <activity
-            android:name=".Activity_Gingerbread"
+            android:name="com.hapr.activities.Activity_Gingerbread"
             android:label="@string/app_name"  android:screenOrientation="portrait">
         </activity>
         
         <activity
-            android:name=".Activity_Honeycomb"
+            android:name="com.hapr.activities.Activity_Honeycomb"
             android:label="@string/app_name" android:screenOrientation="portrait">
         </activity>
         
         <activity
-            android:name=".Activity_ICS"
+            android:name="com.hapr.activities.Activity_ICS"
             android:label="@string/app_name" android:screenOrientation="portrait">
         </activity>
         
         <activity
-            android:name=".Activity_JellyBean"
+            android:name="com.hapr.activities.Activity_JellyBean"
             android:label="@string/app_name" android:screenOrientation="portrait">
         </activity>  
     </application>

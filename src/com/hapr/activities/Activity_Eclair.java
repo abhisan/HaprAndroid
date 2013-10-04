@@ -1,4 +1,4 @@
-package com.technotalkative.viewstubdemo;
+package com.hapr.activities;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -10,8 +10,9 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ImageView.ScaleType;
 
-import com.example.coverflow.CoverAdapterView;
-import com.example.coverflow.CoverFlow;
+import com.hapr.coverflow.CoverAdapterView;
+import com.hapr.coverflow.CoverFlow;
+import com.technotalkative.viewstubdemo.R;
 
 public class Activity_Eclair extends DashBoardActivity {
 	@Override
@@ -30,7 +31,7 @@ public class Activity_Eclair extends DashBoardActivity {
 		coverFlow.setOnItemClickListener(oic);
 	}
 
-	public class OnItemClick implements com.example.coverflow.CoverAdapterView.OnItemClickListener {
+	public class OnItemClick implements com.hapr.coverflow.CoverAdapterView.OnItemClickListener {
 		public void onItemClick(CoverAdapterView<?> parent, View view, int position, long id) {
 			System.out.println("hi");
 		}

@@ -19,7 +19,7 @@
  * @author Neil Davies
  */
 
-package com.example.coverflow;
+package com.hapr.coverflow;
 
 
 import android.R;

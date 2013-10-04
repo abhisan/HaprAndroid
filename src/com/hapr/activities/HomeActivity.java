@@ -1,4 +1,6 @@
-package com.technotalkative.viewstubdemo;
+package com.hapr.activities;
+
+import com.technotalkative.viewstubdemo.R;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;

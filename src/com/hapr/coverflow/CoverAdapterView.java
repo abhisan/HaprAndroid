@@ -1,4 +1,4 @@
-package com.example.coverflow;
+package com.hapr.coverflow;
 
 /*
  * Copyright (C) 2006 The Android Open Source Project
