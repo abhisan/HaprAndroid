@@ -84,20 +84,6 @@
                 android:onClick="onButtonClicker"
                 android:text="@string/JellyBeanActivityTitle" />
         </LinearLayout>
-
-        <!-- LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="horizontal" >
-
-            <com.example.coverflow.CoverFlow
-                xmlns:android="http://schemas.android.com/apk/res/android"
-                android:id="@+id/coverflowmain"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:background="@null" />
-        </LinearLayout-->
     </LinearLayout>
 
 </LinearLayout>

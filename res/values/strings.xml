@@ -12,5 +12,17 @@
     <string name="HoneycombActivityTitle">Monitor</string>
     <string name="ICSActivityTitle">System</string>
     <string name="JellyBeanActivityTitle">More</string>
+ 
+    <!-- Weather  -->
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_weather">Weather Information</string>
+	<string name="strCity">Sydney</string>
+	<string name="strWeather">Sunny</string>
+	<string name="strTemp">32°C</string>
+	<string name="txtTemp">Temp</string>	
+	<string name="strWindSpeed">5kmph</string>
+	<string name="txtWindSpeed">WindSpeed</string>
+	<string name="Separator">---</string>
 
 </resources>

@@ -12,48 +12,57 @@
         android:theme="@android:style/Theme.Light.NoTitleBar" >
         <activity
             android:name="com.hapr.activities.HomeActivity"
-            android:label="@string/app_name" android:screenOrientation="portrait" >
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        
         <activity
             android:name="com.hapr.activities.FeedbackActivity"
-            android:label="@string/app_name" android:screenOrientation="portrait">
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
         </activity>
-        
-         <activity
+        <activity
             android:name="com.hapr.activities.Activity_Eclair"
-            android:label="@string/app_name" android:screenOrientation="portrait">
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
         </activity>
-        
-         <activity
+        <activity
             android:name="com.hapr.activities.Activity_Froyo"
-            android:label="@string/app_name" android:screenOrientation="portrait">
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
         </activity>
-        
         <activity
             android:name="com.hapr.activities.Activity_Gingerbread"
-            android:label="@string/app_name"  android:screenOrientation="portrait">
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
         </activity>
-        
         <activity
             android:name="com.hapr.activities.Activity_Honeycomb"
-            android:label="@string/app_name" android:screenOrientation="portrait">
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
         </activity>
-        
         <activity
             android:name="com.hapr.activities.Activity_ICS"
-            android:label="@string/app_name" android:screenOrientation="portrait">
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
         </activity>
-        
         <activity
             android:name="com.hapr.activities.Activity_JellyBean"
-            android:label="@string/app_name" android:screenOrientation="portrait">
-        </activity>  
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.hapr.customview.ControlActivity"
+            android:theme="@android:style/Theme.Light.NoTitleBar" >
+        </activity>
+        <activity
+            android:name="com.hapr.customview.SampleActivity"
+            android:theme="@android:style/Theme.Light.NoTitleBar" >
+        </activity>
     </application>
 
 </manifest>

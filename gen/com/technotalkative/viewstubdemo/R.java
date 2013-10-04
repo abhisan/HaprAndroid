@@ -21,39 +21,80 @@ public final class R {
         public static final int title_height=0x7f050000;
     }
     public static final class drawable {
-        public static final int device_ir_normal_bg=0x7f020000;
-        public static final int devices_control=0x7f020001;
-        public static final int devices_environment=0x7f020002;
-        public static final int devices_health=0x7f020003;
-        public static final int devices_light_manage=0x7f020004;
-        public static final int devices_respondservice=0x7f020005;
-        public static final int devices_safeguards=0x7f020006;
-        public static final int ic_feedback=0x7f020007;
-        public static final int ic_home=0x7f020008;
-        public static final int ic_launcher=0x7f020009;
-        public static final int main_home_devices=0x7f02000a;
-        public static final int main_home_monitor=0x7f02000b;
-        public static final int main_home_more=0x7f02000c;
-        public static final int main_home_room=0x7f02000d;
-        public static final int main_home_scene=0x7f02000e;
-        public static final int main_home_system=0x7f02000f;
+        public static final int arrow=0x7f020000;
+        public static final int cloudy=0x7f020001;
+        public static final int dcloudy=0x7f020002;
+        public static final int device_ac_sleep_off=0x7f020003;
+        public static final int device_ac_sleep_on=0x7f020004;
+        public static final int device_ir_normal_bg=0x7f020005;
+        public static final int devices_control=0x7f020006;
+        public static final int devices_environment=0x7f020007;
+        public static final int devices_health=0x7f020008;
+        public static final int devices_light_manage=0x7f020009;
+        public static final int devices_respondservice=0x7f02000a;
+        public static final int devices_safeguards=0x7f02000b;
+        public static final int drainy=0x7f02000c;
+        public static final int dsnowing=0x7f02000d;
+        public static final int dsunny=0x7f02000e;
+        public static final int dthunder=0x7f02000f;
+        public static final int general_divider_view_h=0x7f020010;
+        public static final int gradient_bg=0x7f020011;
+        public static final int gradient_bg_hover=0x7f020012;
+        public static final int ic_action_search=0x7f020013;
+        public static final int ic_feedback=0x7f020014;
+        public static final int ic_home=0x7f020015;
+        public static final int ic_launcher=0x7f020016;
+        public static final int light_off=0x7f020017;
+        public static final int light_on=0x7f020018;
+        public static final int list_selector=0x7f020019;
+        public static final int main_home_devices=0x7f02001a;
+        public static final int main_home_monitor=0x7f02001b;
+        public static final int main_home_more=0x7f02001c;
+        public static final int main_home_room=0x7f02001d;
+        public static final int main_home_scene=0x7f02001e;
+        public static final int main_home_system=0x7f02001f;
+        public static final int pcloudy=0x7f020020;
+        public static final int rainy=0x7f020021;
+        public static final int snowing=0x7f020022;
+        public static final int sunny=0x7f020023;
+        public static final int thunder=0x7f020024;
     }
     public static final class id {
-        public static final int btnFeedback=0x7f080009;
-        public static final int btnHome=0x7f080006;
+        public static final int btnFeedback=0x7f080017;
+        public static final int btnHome=0x7f080014;
+        public static final int controlImage=0x7f080019;
+        public static final int controlImageArrow=0x7f08001a;
+        public static final int controlName=0x7f08001b;
+        public static final int controlState=0x7f08001c;
         public static final int coverflow=0x7f080003;
         public static final int header=0x7f080001;
+        public static final int imageButtonAlpha=0x7f080008;
         public static final int list=0x7f080002;
-        public static final int main_btn_eclair=0x7f08000a;
-        public static final int main_btn_froyo=0x7f08000b;
-        public static final int main_btn_gingerbread=0x7f08000c;
-        public static final int main_btn_honeycomb=0x7f08000d;
-        public static final int main_btn_ics=0x7f08000e;
-        public static final int main_btn_jellybean=0x7f08000f;
-        public static final int panelIconLeft=0x7f080005;
-        public static final int panelIconRight=0x7f080008;
+        public static final int location=0x7f08001d;
+        public static final int main_btn_eclair=0x7f08001e;
+        public static final int main_btn_froyo=0x7f08001f;
+        public static final int main_btn_gingerbread=0x7f080020;
+        public static final int main_btn_honeycomb=0x7f080021;
+        public static final int main_btn_ics=0x7f080022;
+        public static final int main_btn_jellybean=0x7f080023;
+        public static final int panelIconLeft=0x7f080013;
+        public static final int panelIconRight=0x7f080016;
+        public static final int tableRow1=0x7f080005;
+        public static final int tableRow2=0x7f080007;
+        public static final int tableRow3=0x7f08000f;
+        public static final int tableRow4=0x7f08000d;
+        public static final int tableRow5=0x7f080011;
+        public static final int tableRow6=0x7f08000a;
         public static final int textView1=0x7f080004;
-        public static final int txtHeading=0x7f080007;
+        public static final int textView2=0x7f080010;
+        public static final int textView3=0x7f08000b;
+        public static final int textView4=0x7f08000c;
+        public static final int textViewCity=0x7f080006;
+        public static final int textViewCondition=0x7f080012;
+        public static final int textViewTemperature=0x7f080009;
+        public static final int textViewWindSpeed=0x7f08000e;
+        public static final int thumbnail=0x7f080018;
+        public static final int txtHeading=0x7f080015;
         public static final int vsHeader=0x7f080000;
     }
     public static final class layout {
@@ -64,8 +105,10 @@ public final class R {
         public static final int activity_honeycomb=0x7f030004;
         public static final int activity_ics=0x7f030005;
         public static final int activity_jellybean=0x7f030006;
-        public static final int header=0x7f030007;
-        public static final int main=0x7f030008;
+        public static final int detailpage=0x7f030007;
+        public static final int header=0x7f030008;
+        public static final int list_row=0x7f030009;
+        public static final int main=0x7f03000a;
     }
     public static final class string {
         public static final int EclairActivityTitle=0x7f060004;
@@ -78,8 +121,20 @@ public final class R {
         public static final int HoneycombActivityTitle=0x7f060007;
         public static final int ICSActivityTitle=0x7f060008;
         public static final int JellyBeanActivityTitle=0x7f060009;
+        public static final int Separator=0x7f060013;
         public static final int app_name=0x7f060000;
+        /**  Weather  
+         */
+        public static final int hello_world=0x7f06000a;
+        public static final int menu_settings=0x7f06000b;
+        public static final int strCity=0x7f06000d;
+        public static final int strTemp=0x7f06000f;
+        public static final int strWeather=0x7f06000e;
+        public static final int strWindSpeed=0x7f060011;
+        public static final int title_activity_weather=0x7f06000c;
         public static final int txtDemo=0x7f060001;
+        public static final int txtTemp=0x7f060010;
+        public static final int txtWindSpeed=0x7f060012;
     }
     public static final class style {
         public static final int HomeButton=0x7f070001;
