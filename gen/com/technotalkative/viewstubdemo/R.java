@@ -21,38 +21,22 @@ public final class R {
         public static final int title_height=0x7f050000;
     }
     public static final class drawable {
-        public static final int android__logo_froyo=0x7f020000;
-        public static final int android_eclair_logo=0x7f020001;
-        public static final int android_gingerbread_logo=0x7f020002;
-        public static final int android_honeycomb_logo=0x7f020003;
-        public static final int android_ics_logo=0x7f020004;
-        public static final int android_jellybean_logo=0x7f020005;
-        public static final int death_cub_for_cutie_the_photo_album=0x7f020006;
-        public static final int device_ir_normal_bg=0x7f020007;
-        public static final int devices_control=0x7f020008;
-        public static final int devices_environment=0x7f020009;
-        public static final int devices_health=0x7f02000a;
-        public static final int devices_light_manage=0x7f02000b;
-        public static final int devices_respondservice=0x7f02000c;
-        public static final int devices_safeguards=0x7f02000d;
-        public static final int garbage_bleed_like_me=0x7f02000e;
-        public static final int ic_feedback=0x7f02000f;
-        public static final int ic_home=0x7f020010;
-        public static final int ic_launcher=0x7f020011;
-        public static final int icon=0x7f020012;
-        public static final int kasabian_kasabian=0x7f020013;
-        public static final int killers_day_and_age=0x7f020014;
-        public static final int main_home_devices=0x7f020015;
-        public static final int main_home_monitor=0x7f020016;
-        public static final int main_home_more=0x7f020017;
-        public static final int main_home_room=0x7f020018;
-        public static final int main_home_scene=0x7f020019;
-        public static final int main_home_system=0x7f02001a;
-        public static final int massive_attack_collected=0x7f02001b;
-        public static final int muse_the_resistance=0x7f02001c;
-        public static final int radiohead_in_rainbows=0x7f02001d;
-        public static final int snowpatrol_hundred_million_suns=0x7f02001e;
-        public static final int starssailor_silence_is_easy=0x7f02001f;
+        public static final int device_ir_normal_bg=0x7f020000;
+        public static final int devices_control=0x7f020001;
+        public static final int devices_environment=0x7f020002;
+        public static final int devices_health=0x7f020003;
+        public static final int devices_light_manage=0x7f020004;
+        public static final int devices_respondservice=0x7f020005;
+        public static final int devices_safeguards=0x7f020006;
+        public static final int ic_feedback=0x7f020007;
+        public static final int ic_home=0x7f020008;
+        public static final int ic_launcher=0x7f020009;
+        public static final int main_home_devices=0x7f02000a;
+        public static final int main_home_monitor=0x7f02000b;
+        public static final int main_home_more=0x7f02000c;
+        public static final int main_home_room=0x7f02000d;
+        public static final int main_home_scene=0x7f02000e;
+        public static final int main_home_system=0x7f02000f;
     }
     public static final class id {
         public static final int btnFeedback=0x7f080009;
@@ -84,19 +68,18 @@ public final class R {
         public static final int main=0x7f030008;
     }
     public static final class string {
-        public static final int EclairActivityTitle=0x7f060005;
-        public static final int FeedbackActivityTitle=0x7f060004;
-        public static final int FroyoActivityTitle=0x7f060006;
-        public static final int GingerbreadActivityTitle=0x7f060007;
+        public static final int EclairActivityTitle=0x7f060004;
+        public static final int FeedbackActivityTitle=0x7f060003;
+        public static final int FroyoActivityTitle=0x7f060005;
+        public static final int GingerbreadActivityTitle=0x7f060006;
         /**  Activity Titles 
          */
-        public static final int HomeActivityTitle=0x7f060003;
-        public static final int HoneycombActivityTitle=0x7f060008;
-        public static final int ICSActivityTitle=0x7f060009;
-        public static final int JellyBeanActivityTitle=0x7f06000a;
-        public static final int app_name=0x7f060001;
-        public static final int hello=0x7f060000;
-        public static final int txtDemo=0x7f060002;
+        public static final int HomeActivityTitle=0x7f060002;
+        public static final int HoneycombActivityTitle=0x7f060007;
+        public static final int ICSActivityTitle=0x7f060008;
+        public static final int JellyBeanActivityTitle=0x7f060009;
+        public static final int app_name=0x7f060000;
+        public static final int txtDemo=0x7f060001;
     }
     public static final class style {
         public static final int HomeButton=0x7f070001;
