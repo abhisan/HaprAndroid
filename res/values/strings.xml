@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World, DashBoardExampleActivity!</string>
+    <string name="app_name">DashBoardExample</string>
+    <string name="txtDemo">Home Automation System</string>
+
+    <!-- Activity Titles -->
+    <string name="HomeActivityTitle">Hapr | Home Automation System</string>
+    <string name="FeedbackActivityTitle">Feedback</string>
+    <string name="EclairActivityTitle">Scene</string>
+    <string name="FroyoActivityTitle">Area</string>
+    <string name="GingerbreadActivityTitle">Function</string>
+    <string name="HoneycombActivityTitle">Monitor</string>
+    <string name="ICSActivityTitle">System</string>
+    <string name="JellyBeanActivityTitle">More</string>
+
+</resources>

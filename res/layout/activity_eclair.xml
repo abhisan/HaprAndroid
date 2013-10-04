@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <!-- Included header.xml here -->
+
+    <ViewStub
+        android:id="@+id/vsHeader"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:inflatedId="@+id/header"
+        android:layout="@layout/header" />
+
+    <ListView
+        android:id="@+id/list"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#66000000"
+        android:cacheColorHint="@android:color/transparent"
+        android:dividerHeight="1dp">
+    </ListView>
+
+    <com.example.coverflow.CoverFlow
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/coverflow"
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        android:background="@null"
+        android:paddingBottom="0dp" >
+    </com.example.coverflow.CoverFlow>
+
+    <!--
+         TextView
+        android:id="@+id/textView1"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:text="@string/EclairActivityTitle" /
+    -->
+
+</LinearLayout>
