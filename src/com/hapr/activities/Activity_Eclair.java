@@ -116,7 +116,7 @@ public class Activity_Eclair extends DashBoardActivity {
 		coverFlow.setSpacing(-15);
 		coverFlow.setSelection(2, true);
 		OnItemClick oic = new OnItemClick();
-		coverFlow.setOnItemClickListener(oic);
+		//coverFlow.setOnItemClickListener(oic);
 	}
 
 	public class OnItemClick implements com.hapr.coverflow.CoverAdapterView.OnItemClickListener {
