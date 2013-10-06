@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Options>
+	<optiondata>
+	    <id>1</id>
+		<control>Light</control>
+       	<location>Kitchen</location>
+  		<state>Off</state>
+  		<icon>light_off</icon>
+	</optiondata>
+	
+	<optiondata>
+	    <id>2</id>
+		<control>Dimmer Light</control>
+		<location>Hall</location>
+     	<state>On</state>
+		<icon>light_on</icon>
+	</optiondata>
+	
+	<optiondata>
+	    <id>3</id>
+		<control>Dimmer Light</control>
+		<location>Guest Room</location>
+     	<state>On</state>
+		<icon>light_on</icon>
+	</optiondata>
+	
+	<optiondata>
+	    <id>4</id>
+		<control>Fan</control>
+		<location>Hall</location>
+     	<state>On</state>
+		<icon>device_ac_sleep_on</icon>
+	</optiondata>
+	
+	
+	<optiondata>
+	    <id>5</id>
+		<control>Fan</control>
+		<location>Hall</location>
+     	<state>On</state>
+		<icon>device_ac_sleep_off</icon>
+	</optiondata>
+	
+	
+	<optiondata>
+	    <id>6</id>
+		<control>Fan</control>
+		<location>Hall</location>
+     	<state>On</state>
+		<icon>device_ac_sleep_off</icon>
+	</optiondata>
+	
+	
+	<optiondata>
+	    <id>7</id>
+		<control>Fan</control>
+		<location>Hall</location>
+     	<state>On</state>
+		<icon>device_ac_sleep_off</icon>
+	</optiondata>
+	
+	
+	<optiondata>
+	    <id>8</id>
+		<control>Fan</control>
+		<location>Hall</location>
+     	<state>On</state>
+		<icon>device_ac_sleep_off</icon>
+	</optiondata>
+	
+	
+</Options>

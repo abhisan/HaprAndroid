@@ -146,7 +146,7 @@ public class Activity_Eclair extends DashBoardActivity {
 				Bitmap originalImage = BitmapFactory.decodeResource(getResources(), imageId);
 				ImageView imageView = new ImageView(mContext);
 				imageView.setImageBitmap(originalImage);
-				imageView.setLayoutParams(new CoverFlow.LayoutParams(100, 100));
+				imageView.setLayoutParams(new CoverFlow.LayoutParams(300, 300));
 				imageView.setScaleType(ScaleType.MATRIX);
 				mImages[index++] = imageView;
 			}

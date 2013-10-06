@@ -1,5 +1,3 @@
-package com.hapr.coverflow;
-
 /*
  * Copyright (C) 2010 Neil Davies
  *
@@ -20,12 +18,12 @@ package com.hapr.coverflow;
  * 
  * @author Neil Davies
  */
+package com.hapr.coverflow;
 
 import android.content.Context;
 import android.graphics.Camera;
 import android.graphics.Matrix;
 import android.util.AttributeSet;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Transformation;
 import android.widget.Gallery;
@@ -52,8 +50,6 @@ public class CoverFlow extends Gallery {
 	 * The Centre of the Coverflow
 	 */
 	private int mCoveflowCenter;
-
-	private float mZAxis = 100.0f;
 
 	public CoverFlow(Context context) {
 		super(context);
@@ -108,22 +104,13 @@ public class CoverFlow extends Gallery {
 		mMaxZoom = maxZoom;
 	}
 
-	public float getmZAxis() {
-		return mZAxis;
-	}
-
-	public void setmZAxis(float mZAxis) {
-		this.mZAxis = mZAxis;
-	}
-
 	/**
 	 * Get the Centre of the Coverflow
 	 * 
 	 * @return The centre of this Coverflow.
 	 */
 	private int getCenterOfCoverflow() {
-		return (getWidth() - getPaddingLeft() - getPaddingRight()) / 2
-				+ getPaddingLeft();
+		return (getWidth() - getPaddingLeft() - getPaddingRight()) / 2 + getPaddingLeft();
 	}
 
 	/**
@@ -154,8 +141,7 @@ public class CoverFlow extends Gallery {
 		} else {
 			rotationAngle = (int) (((float) (mCoveflowCenter - childCenter) / childWidth) * mMaxRotationAngle);
 			if (Math.abs(rotationAngle) > mMaxRotationAngle) {
-				rotationAngle = (rotationAngle < 0) ? -mMaxRotationAngle
-						: mMaxRotationAngle;
+				rotationAngle = (rotationAngle < 0) ? -mMaxRotationAngle : mMaxRotationAngle;
 			}
 			transformImageBitmap((ImageView) child, t, rotationAngle);
 		}
@@ -192,8 +178,7 @@ public class CoverFlow extends Gallery {
 	 * @param rotationAngle
 	 *            the Angle by which to rotate the Bitmap
 	 */
-	private void transformImageBitmap(ImageView child, Transformation t,
-			int rotationAngle) {
+	private void transformImageBitmap(ImageView child, Transformation t, int rotationAngle) {
 		mCamera.save();
 		final Matrix imageMatrix = t.getMatrix();
 		;
@@ -202,7 +187,7 @@ public class CoverFlow extends Gallery {
 		final int imageWidth = child.getLayoutParams().width;
 		final int rotation = Math.abs(rotationAngle);
 
-		mCamera.translate(0.0f, 0.0f, mZAxis);
+		mCamera.translate(0.0f, 0.0f, 100.0f);
 
 		// As the angle of the view gets less, zoom in
 		if (rotation < mMaxRotationAngle) {
@@ -215,26 +200,5 @@ public class CoverFlow extends Gallery {
 		imageMatrix.preTranslate(-(imageWidth / 2), -(imageHeight / 2));
 		imageMatrix.postTranslate((imageWidth / 2), (imageHeight / 2));
 		mCamera.restore();
-	}
-
-	@Override
-	public boolean onDown(MotionEvent e) {
-		getParent().requestDisallowInterceptTouchEvent(true);
-		return super.onDown(e);
-	}
-
-	@Override
-	public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX,
-			float velocityY) {
-		return super.onFling(e1, e2, velocityX, velocityY);
-	}
-
-	@Override
-	public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX,
-			float distanceY) {
-
-		getParent().requestDisallowInterceptTouchEvent(true);
-
-		return super.onScroll(e1, e2, distanceX, distanceY);
 	}
 }
