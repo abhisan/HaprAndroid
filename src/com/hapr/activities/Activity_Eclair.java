@@ -13,12 +13,19 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
+import android.app.ActionBar;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -34,8 +41,9 @@ import com.hapr.customview.BinderData;
 import com.hapr.customview.SampleActivity;
 import com.technotalkative.viewstubdemo.R;
 
-public class Activity_Eclair extends DashBoardActivity {
-
+public class Activity_Eclair extends FragmentActivity {
+	AppSectionsPagerAdapter mAppSectionsPagerAdapter;
+	ViewPager mViewPager;
 	// XML node keys
 	static final String KEY_TAG = "optiondata"; // parent node
 	static final String KEY_ID = "id";
@@ -53,8 +61,17 @@ public class Activity_Eclair extends DashBoardActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_eclair);
-		setHeader(getString(R.string.EclairActivityTitle), true, true);
-
+		/*
+		final CoverFlow coverFlow = (CoverFlow) findViewById(R.id.coverflow);
+		coverFlow.setAdapter(new ImageAdapter(this));
+		ImageAdapter coverImageAdapter = new ImageAdapter(this);
+		coverImageAdapter.createReflectedImages();
+		coverFlow.setAdapter(coverImageAdapter);
+		coverFlow.setSpacing(-15);
+		coverFlow.setSelection(2, true);
+		OnItemClick oic = new OnItemClick();
+		//coverFlow.setOnClickListener(oic);
+		*/
 		try {
 			DocumentBuilderFactory docBuilderFactory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder docBuilder = docBuilderFactory.newDocumentBuilder();
@@ -89,34 +106,21 @@ public class Activity_Eclair extends DashBoardActivity {
 				}
 			}
 			BinderData bindingData = new BinderData(this, optionDataCollection);
-			list = (ListView) findViewById(R.id.list);
-			list.setAdapter(bindingData);
-			list.setOnItemClickListener(new OnItemClickListener() {
-				public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-					Intent i = new Intent();
-					i.setClass(Activity_Eclair.this, SampleActivity.class);
-					i.putExtra("position", String.valueOf(position + 1));
-					i.putExtra("control", optionDataCollection.get(position).get(KEY_CONTROL));
-					i.putExtra("location", optionDataCollection.get(position).get(KEY_LOCATION));
-					i.putExtra("state", optionDataCollection.get(position).get(KEY_STATE));
-					i.putExtra("icon", optionDataCollection.get(position).get(KEY_ICON));
-					startActivity(i);
-				}
-			});
+		
 		} catch (IOException ex) {
 			Log.e("Error", ex.getMessage());
 		} catch (Exception ex) {
 			Log.e("Error", "Loading exception");
 		}
-		CoverFlow coverFlow = (CoverFlow) findViewById(R.id.coverflow);
-		coverFlow.setAdapter(new ImageAdapter(this));
-		ImageAdapter coverImageAdapter = new ImageAdapter(this);
-		coverImageAdapter.createReflectedImages();
-		coverFlow.setAdapter(coverImageAdapter);
-		coverFlow.setSpacing(-15);
-		coverFlow.setSelection(2, true);
-		OnItemClick oic = new OnItemClick();
-		//coverFlow.setOnItemClickListener(oic);
+		mAppSectionsPagerAdapter = new AppSectionsPagerAdapter(getSupportFragmentManager());
+		mViewPager = (ViewPager) findViewById(R.id.pager);
+		mViewPager.setAdapter(mAppSectionsPagerAdapter);
+		mViewPager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
+			@Override
+			public void onPageSelected(int position) {
+				//coverFlow.setSelection(position);
+			}
+		});
 	}
 
 	public class OnItemClick implements com.hapr.coverflow.CoverAdapterView.OnItemClickListener {
@@ -171,6 +175,40 @@ public class Activity_Eclair extends DashBoardActivity {
 
 		public float getScale(boolean focused, int offset) {
 			return Math.max(0, 1.0f / (float) Math.pow(2, Math.abs(offset)));
+		}
+	}
+
+	public static class AppSectionsPagerAdapter extends FragmentPagerAdapter {
+		public AppSectionsPagerAdapter(FragmentManager fm) {
+			super(fm);
+		}
+
+		@Override
+		public Fragment getItem(int i) {
+			switch (i) {
+				default:
+					return new LaunchpadSectionFragment();
+			}
+		}
+
+		@Override
+		public int getCount() {
+			return 3;
+		}
+
+		@Override
+		public CharSequence getPageTitle(int position) {
+			return "Section " + (position + 1);
+		}
+	}
+
+	public static class LaunchpadSectionFragment extends Fragment {
+		@Override
+		public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+			View rootView = inflater.inflate(R.layout.fragment_section_launchpad, container, false);
+			ListView lv = (ListView) rootView.findViewById(R.id.list);
+			
+			return rootView;
 		}
 	}
 }

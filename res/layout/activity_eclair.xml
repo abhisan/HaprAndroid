@@ -24,25 +24,29 @@
         android:paddingRight="10dp"
         android:paddingTop="10dp" >
 
-        <ListView
-            android:id="@+id/list"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_above="@+id/coverflow"
-            android:background="#66000000"
-            android:cacheColorHint="@android:color/transparent"
-            android:divider="@drawable/general_divider_view_h"
-            android:dividerHeight="1dp"
-            android:listSelector="@drawable/list_selector" >
-        </ListView>
+        <android.support.v4.view.ViewPager
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
 
-        <com.hapr.coverflow.CoverFlow
+        <android.support.v4.view.PagerTitleStrip
+        android:id="@+id/pager_title_strip"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:background="#33b5e5"
+        android:textColor="#fff"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp" />
+        </android.support.v4.view.ViewPager>
+        <!--  -->com.hapr.coverflow.CoverFlow
             xmlns:android="http://schemas.android.com/apk/res/android"
             android:id="@+id/coverflow"
             android:layout_width="match_parent"
             android:layout_height="300dp"
             android:layout_alignParentBottom="true"
-            android:background="@null" />
+            android:background="@null" /-->
     </RelativeLayout>
 
 </LinearLayout>

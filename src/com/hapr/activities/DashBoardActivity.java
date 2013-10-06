@@ -1,10 +1,5 @@
 package com.hapr.activities;
 
-/**
- * @author Paresh N. Mayani
- * http://www.technotalkative.com
- */
-
 import com.technotalkative.viewstubdemo.R;
 
 import android.app.Activity;

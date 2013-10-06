@@ -60,25 +60,27 @@ public final class R {
         public static final int thunder=0x7f020024;
     }
     public static final class id {
-        public static final int btnFeedback=0x7f080017;
-        public static final int btnHome=0x7f080014;
-        public static final int controlImage=0x7f080019;
-        public static final int controlImageArrow=0x7f08001a;
-        public static final int controlName=0x7f08001b;
-        public static final int controlState=0x7f08001c;
-        public static final int coverflow=0x7f080003;
+        public static final int btnFeedback=0x7f080019;
+        public static final int btnHome=0x7f080016;
+        public static final int controlImage=0x7f08001b;
+        public static final int controlImageArrow=0x7f08001c;
+        public static final int controlName=0x7f08001d;
+        public static final int controlState=0x7f08001e;
+        public static final int demo_collection_button=0x7f080014;
         public static final int header=0x7f080001;
         public static final int imageButtonAlpha=0x7f080008;
-        public static final int list=0x7f080002;
-        public static final int location=0x7f08001d;
-        public static final int main_btn_eclair=0x7f08001e;
-        public static final int main_btn_froyo=0x7f08001f;
-        public static final int main_btn_gingerbread=0x7f080020;
-        public static final int main_btn_honeycomb=0x7f080021;
-        public static final int main_btn_ics=0x7f080022;
-        public static final int main_btn_jellybean=0x7f080023;
-        public static final int panelIconLeft=0x7f080013;
-        public static final int panelIconRight=0x7f080016;
+        public static final int list=0x7f080013;
+        public static final int location=0x7f08001f;
+        public static final int main_btn_eclair=0x7f080020;
+        public static final int main_btn_froyo=0x7f080021;
+        public static final int main_btn_gingerbread=0x7f080022;
+        public static final int main_btn_honeycomb=0x7f080023;
+        public static final int main_btn_ics=0x7f080024;
+        public static final int main_btn_jellybean=0x7f080025;
+        public static final int pager=0x7f080002;
+        public static final int pager_title_strip=0x7f080003;
+        public static final int panelIconLeft=0x7f080015;
+        public static final int panelIconRight=0x7f080018;
         public static final int tableRow1=0x7f080005;
         public static final int tableRow2=0x7f080007;
         public static final int tableRow3=0x7f08000f;
@@ -93,8 +95,8 @@ public final class R {
         public static final int textViewCondition=0x7f080012;
         public static final int textViewTemperature=0x7f080009;
         public static final int textViewWindSpeed=0x7f08000e;
-        public static final int thumbnail=0x7f080018;
-        public static final int txtHeading=0x7f080015;
+        public static final int thumbnail=0x7f08001a;
+        public static final int txtHeading=0x7f080017;
         public static final int vsHeader=0x7f080000;
     }
     public static final class layout {
@@ -106,9 +108,10 @@ public final class R {
         public static final int activity_ics=0x7f030005;
         public static final int activity_jellybean=0x7f030006;
         public static final int detailpage=0x7f030007;
-        public static final int header=0x7f030008;
-        public static final int list_row=0x7f030009;
-        public static final int main=0x7f03000a;
+        public static final int fragment_section_launchpad=0x7f030008;
+        public static final int header=0x7f030009;
+        public static final int list_row=0x7f03000a;
+        public static final int main=0x7f03000b;
     }
     public static final class string {
         public static final int EclairActivityTitle=0x7f060004;
