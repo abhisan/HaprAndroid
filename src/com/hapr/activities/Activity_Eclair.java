@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.View;
@@ -51,9 +52,8 @@ public class Activity_Eclair extends FragmentActivity {
 		ImageAdapter coverImageAdapter = new ImageAdapter(this);
 		coverImageAdapter.createReflectedImages();
 		coverFlow.setAdapter(coverImageAdapter);
-		coverFlow.setSpacing(-15);
+		coverFlow.setSpacing(-20);
 		coverFlow.setSelection(2, true);
-		// coverFlow.setOnClickListener(oic);
 
 		mAdapter = new MyAdapter(getSupportFragmentManager());
 		mPager = (ViewPager) findViewById(R.id.pager);
@@ -71,15 +71,13 @@ public class Activity_Eclair extends FragmentActivity {
 			@Override
 			public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
 				mPager.setCurrentItem(arg2);
-				
+
 			}
 
 			@Override
 			public void onNothingSelected(AdapterView<?> arg0) {
 				// TODO Auto-generated method stub
-				
 			}
-			
 		});
 	}
 
@@ -107,11 +105,12 @@ public class Activity_Eclair extends FragmentActivity {
 		public boolean createReflectedImages() {
 			int index = 0;
 			for (int imageId : mImageIds) {
-				Bitmap originalImage = BitmapFactory.decodeResource(getResources(), imageId);
+				//Bitmap originalImage = BitmapFactory.decodeResource(getResources(), imageId);
 				ImageView imageView = new ImageView(mContext);
-				imageView.setImageBitmap(originalImage);
-				imageView.setLayoutParams(new CoverFlow.LayoutParams(150, 150));
-				imageView.setScaleType(ScaleType.MATRIX);
+				//imageView.setImageBitmap(originalImage);
+				imageView.setImageResource(imageId);
+				//imageView.setLayoutParams(new CoverFlow.LayoutParams(150, 150));
+				imageView.setScaleType(ScaleType.FIT_CENTER);
 				mImages[index++] = imageView;
 			}
 			return true;
@@ -138,7 +137,7 @@ public class Activity_Eclair extends FragmentActivity {
 		}
 	}
 
-	public static class MyAdapter extends FragmentStatePagerAdapter {
+	public static class MyAdapter extends FragmentPagerAdapter {
 		public MyAdapter(FragmentManager fragmentManager) {
 			super(fragmentManager);
 		}

@@ -14,6 +14,7 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
 import android.util.Log;
@@ -21,8 +22,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.hapr.customview.BinderData;
 import com.hapr.customview.SampleActivity;
@@ -37,21 +41,18 @@ public class ControlListFragment extends ListFragment {
 	static final String KEY_STATE = "state";
 	static final String KEY_ICON = "icon";
 
-	// List items
 	ListView list;
 	BinderData adapter = null;
 	List<HashMap<String, String>> optionDataCollection;
 
 	int fragNum;
-	String arr[] = { "This is", "a Truiton", "Demo", "App", "For", "Showing", "FragmentPagerAdapter", "and ViewPager", "Implementation" };
 
 	public static ControlListFragment init(int val) {
-		ControlListFragment truitonList = new ControlListFragment();
-		// Supply val input as an argument.
+		ControlListFragment controlListFragment = new ControlListFragment();
 		Bundle args = new Bundle();
 		args.putInt("val", val);
-		truitonList.setArguments(args);
-		return truitonList;
+		controlListFragment.setArguments(args);
+		return controlListFragment;
 	}
 
 	@Override
@@ -65,15 +66,51 @@ public class ControlListFragment extends ListFragment {
 		View layoutView = inflater.inflate(R.layout.fragment_pager_list, container, false);
 		View tv = layoutView.findViewById(R.id.text);
 		((TextView) tv).setText("Truiton Fragment #" + fragNum);
-
 		return layoutView;
 	}
 
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
-		// setListAdapter(new ArrayAdapter<String>(getActivity(),
-		// android.R.layout.simple_list_item_1, arr));
+		getListView().setOnItemClickListener(new AdapterView.OnItemClickListener() {
+			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+				Toast.makeText(getActivity().getApplicationContext(), "Item clicked", Toast.LENGTH_SHORT).show();
+				ImageView imageView = (ImageView) view.findViewById(R.id.controlImage);
+				imageView.setImageResource(R.drawable.device_ac_sleep_off);
+				 /*Intent i = new Intent();
+				i.setClass(getActivity(), SampleActivity.class);
+				i.putExtra("position", String.valueOf(position + 1));
+				i.putExtra("control", optionDataCollection.get(position).get(KEY_CONTROL));
+				i.putExtra("location", optionDataCollection.get(position).get(KEY_LOCATION));
+				i.putExtra("state", optionDataCollection.get(position).get(KEY_STATE));
+				i.putExtra("icon", optionDataCollection.get(position).get(KEY_ICON));
+				startActivity(i);*/
+			}
+		});
+
+		AsyncTask<Void, Void, List<HashMap<String, String>>> task = new AsyncTask<Void, Void, List<HashMap<String, String>>>() {// List<HashMap<String,
+																																// String>>
+			@Override
+			protected List<HashMap<String, String>> doInBackground(Void... params) {
+				try {
+					Thread.sleep(1000);
+					loadControls();
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+				return optionDataCollection;
+			}
+
+			@Override
+			protected void onPostExecute(List<HashMap<String, String>> result) {
+				BinderData bindingData = new BinderData(getActivity(), result);
+				setListAdapter(bindingData);
+			}
+		};
+		task.execute();
+	}
+
+	private void loadControls() {
 		try {
 			DocumentBuilderFactory docBuilderFactory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder docBuilder = docBuilderFactory.newDocumentBuilder();
@@ -107,32 +144,12 @@ public class ControlListFragment extends ListFragment {
 					optionDataCollection.add(map);
 				}
 			}
-			BinderData bindingData = new BinderData(getActivity(), optionDataCollection);
-			// list = (ListView)
-			// layoutView.findViewById(android.R.layout.simple_list_item_1);
-			// setListAdapter(new ArrayAdapter<String>(getActivity(),
-			// android.R.layout.simple_list_item_1, arr));
-			setListAdapter(bindingData);
 
-			// list.setAdapter(bindingData);
-			this.list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-				public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-					Intent i = new Intent();
-					i.setClass(getActivity(), SampleActivity.class);
-					i.putExtra("position", String.valueOf(position + 1));
-					i.putExtra("control", optionDataCollection.get(position).get(KEY_CONTROL));
-					i.putExtra("location", optionDataCollection.get(position).get(KEY_LOCATION));
-					i.putExtra("state", optionDataCollection.get(position).get(KEY_STATE));
-					i.putExtra("icon", optionDataCollection.get(position).get(KEY_ICON));
-					startActivity(i);
-				}
-			});
 		} catch (IOException ex) {
 			Log.e("Error", ex.getMessage());
 		} catch (Exception ex) {
 			Log.e("Error", "Loading exception");
 		}
-
 	}
 
 	@Override

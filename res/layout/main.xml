@@ -40,7 +40,8 @@
                 style="@style/HomeButton"
                 android:drawableTop="@drawable/main_home_monitor"
                 android:onClick="onButtonClicker"
-                android:text="@string/FroyoActivityTitle" />
+                android:text="@string/FroyoActivityTitle" 
+                android:textColor="@android:color/white" />
         </LinearLayout>
 
         <LinearLayout
@@ -54,14 +55,16 @@
                 style="@style/HomeButton"
                 android:drawableTop="@drawable/main_home_more"
                 android:onClick="onButtonClicker"
-                android:text="@string/GingerbreadActivityTitle" />
+                android:text="@string/GingerbreadActivityTitle" 
+                android:textColor="@android:color/white" />
 
             <Button
                 android:id="@+id/main_btn_honeycomb"
                 style="@style/HomeButton"
                 android:drawableTop="@drawable/main_home_room"
                 android:onClick="onButtonClicker"
-                android:text="@string/HoneycombActivityTitle" />
+                android:text="@string/HoneycombActivityTitle" 
+                android:textColor="@android:color/white" />
         </LinearLayout>
 
         <LinearLayout
@@ -75,14 +78,16 @@
                 style="@style/HomeButton"
                 android:drawableTop="@drawable/main_home_scene"
                 android:onClick="onButtonClicker"
-                android:text="@string/ICSActivityTitle" />
+                android:text="@string/ICSActivityTitle" 
+                android:textColor="@android:color/white" />
 
             <Button
                 android:id="@+id/main_btn_jellybean"
                 style="@style/HomeButton"
                 android:drawableTop="@drawable/main_home_system"
                 android:onClick="onButtonClicker"
-                android:text="@string/JellyBeanActivityTitle" />
+                android:text="@string/JellyBeanActivityTitle"
+                android:textColor="@android:color/white"  />
         </LinearLayout>
     </LinearLayout>
 
