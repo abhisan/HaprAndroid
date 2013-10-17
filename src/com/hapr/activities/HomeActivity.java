@@ -3,19 +3,68 @@ package com.hapr.activities;
 import com.technotalkative.viewstubdemo.R;
 
 import android.app.AlertDialog;
+import android.content.ComponentName;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.ServiceConnection;
 import android.os.Bundle;
+import android.os.IBinder;
+import android.util.Log;
 import android.view.View;
+import apt.tutorial.IPostListener;
+import apt.tutorial.IPostMonitor;
+import apt.tutorial.two.PostMonitor;
 
 public class HomeActivity extends DashBoardActivity {
+
+	public static String ACTIVITY_NAME = "main_activity";
+	private IPostMonitor service = null;
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
 		setHeader(getString(R.string.HomeActivityTitle), false, true);
+		bindService(new Intent(this, PostMonitor.class), svcConn, BIND_AUTO_CREATE);
 	}
 
+	private ServiceConnection svcConn = new ServiceConnection() {
+		public void onServiceConnected(ComponentName className, IBinder binder) {
+			service = (IPostMonitor) binder;
+			try {
+				service.registerActivity(ACTIVITY_NAME, listener);
+			} catch (Throwable t) {
+				Log.e("Patchy", "Exception in call to registerAccount()", t);
+			}
+		}
+
+		public void onServiceDisconnected(ComponentName className) {
+			service = null;
+		}
+	};
+
+
+	private IPostListener listener = new IPostListener() {
+		@Override
+		public void newStatus(String state) {
+			runOnUiThread(new Runnable() {
+				public void run() {
+					//TextView tv = (TextView) findViewById(R.id.textView1);
+					//DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+					//Date date = new Date();
+					//tv.setText(dateFormat.format(date).toString());
+				}
+			});
+		}
+	};
+	
+	@Override
+	public void onDestroy() {
+		super.onDestroy();
+		service.removeActivity(ACTIVITY_NAME);
+		unbindService(svcConn);
+	}
+	
 	public void onButtonClicker(View v) {
 		Intent intent;
 

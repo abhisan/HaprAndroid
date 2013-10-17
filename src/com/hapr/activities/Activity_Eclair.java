@@ -3,16 +3,21 @@ package com.hapr.activities;
 import java.util.HashMap;
 import java.util.List;
 
+import android.content.ComponentName;
 import android.content.Context;
+import android.content.Intent;
+import android.content.ServiceConnection;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.os.IBinder;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -20,6 +25,9 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ImageView.ScaleType;
 import android.widget.ListView;
+import apt.tutorial.IPostListener;
+import apt.tutorial.IPostMonitor;
+import apt.tutorial.two.PostMonitor;
 
 import com.hapr.coverflow.CoverAdapterView;
 import com.hapr.coverflow.CoverFlow;
@@ -28,7 +36,7 @@ import com.hapr.fragments.ControlListFragment;
 import com.technotalkative.viewstubdemo.R;
 
 public class Activity_Eclair extends FragmentActivity {
-
+	private IPostMonitor service = null;
 	static final String KEY_TAG = "optiondata"; // parent node
 	static final String KEY_ID = "id";
 	static final String KEY_CONTROL = "control";
@@ -79,8 +87,45 @@ public class Activity_Eclair extends FragmentActivity {
 				// TODO Auto-generated method stub
 			}
 		});
+		bindService(new Intent(this, PostMonitor.class), svcConn, BIND_AUTO_CREATE);
 	}
 
+	private ServiceConnection svcConn = new ServiceConnection() {
+		public void onServiceConnected(ComponentName className, IBinder binder) {
+			service = (IPostMonitor) binder;
+			try {
+				service.registerActivity(this.getClass().getName(), listener);
+			} catch (Throwable t) {
+				Log.e("Patchy", "Exception in call to registerAccount()", t);
+			}
+		}
+
+		public void onServiceDisconnected(ComponentName className) {
+			service = null;
+		}
+	};
+
+	private IPostListener listener = new IPostListener() {
+		@Override
+		public void newStatus(String state) {
+			runOnUiThread(new Runnable() {
+				public void run() {
+					//TextView tv = (TextView) findViewById(R.id.textView1);
+					//DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+					//Date date = new Date();
+					//tv.setText(dateFormat.format(date).toString());
+				}
+			});
+		}
+	};
+
+	@Override
+	public void onDestroy() {
+		super.onDestroy();
+		service.removeActivity(this.getClass().getName());
+		unbindService(svcConn);
+	}
+	
 	public class OnItemClick implements com.hapr.coverflow.CoverAdapterView.OnItemClickListener {
 		public void onItemClick(CoverAdapterView<?> parent, View view, int position, long id) {
 			System.out.println("hi");
