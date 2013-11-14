@@ -1,23 +1,35 @@
 package com.hapr.activities;
 
-import com.technotalkative.viewstubdemo.R;
+import java.util.HashMap;
+import java.util.List;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+
+import org.json.JSONObject;
+import org.w3c.dom.Document;
 
 import android.app.AlertDialog;
+import android.app.Application;
 import android.content.ComponentName;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.ServiceConnection;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 import apt.tutorial.IPostListener;
 import apt.tutorial.IPostMonitor;
 import apt.tutorial.two.PostMonitor;
 
+import com.hapr.HaprApplication;
+import com.hapr.customview.BinderData;
+import com.hapr.utils.net.NetworkUtil;
+import com.technotalkative.viewstubdemo.R;
 public class HomeActivity extends DashBoardActivity {
-
-	public static String ACTIVITY_NAME = "main_activity";
 	private IPostMonitor service = null;
 
 	@Override
@@ -25,49 +37,85 @@ public class HomeActivity extends DashBoardActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
 		setHeader(getString(R.string.HomeActivityTitle), false, true);
+		String status  = NetworkUtil.getConnectivityStatusString(getApplicationContext());
+		boolean flag = NetworkUtil.isConnectingToInternet(getApplicationContext());
+		Toast.makeText(getApplicationContext(), status, Toast.LENGTH_LONG).show();
 		bindService(new Intent(this, PostMonitor.class), svcConn, BIND_AUTO_CREATE);
+		Application a = getApplication();
+		HaprApplication ha = (HaprApplication)a;
+		ha.
 	}
 
 	private ServiceConnection svcConn = new ServiceConnection() {
 		public void onServiceConnected(ComponentName className, IBinder binder) {
 			service = (IPostMonitor) binder;
 			try {
-				service.registerActivity(ACTIVITY_NAME, listener);
+				service.registerActivity(this.getClass().getName(), listener);
 			} catch (Throwable t) {
 				Log.e("Patchy", "Exception in call to registerAccount()", t);
 			}
 		}
 
 		public void onServiceDisconnected(ComponentName className) {
+			Toast.makeText(getApplicationContext(), "Home: Post service discontd!", Toast.LENGTH_LONG).show();
 			service = null;
 		}
 	};
-
-
+	
+	public void initializeHapr(){
+		AsyncTask<Void, Void, List<HashMap<String, String>>> task = new AsyncTask<Void, Void, List<HashMap<String, String>>>() {// List<HashMap<String,
+			@Override
+			protected List<HashMap<String, String>> doInBackground(Void... params) {
+				try {
+					DocumentBuilderFactory docBuilderFactory = DocumentBuilderFactory.newInstance();
+					DocumentBuilder docBuilder = docBuilderFactory.newDocumentBuilder();
+					Document doc = docBuilder.parse(getAssets().open("controldata.xml"));
+					loadControls();
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+				return optionDataCollection;
+			}
+	
+			@Override
+			protected void onPostExecute(List<HashMap<String, String>> result) {
+				BinderData bindingData = new BinderData(getActivity(), result);
+				setListAdapter(bindingData);
+			}
+		};
+		task.execute();
+	}
+	
 	private IPostListener listener = new IPostListener() {
 		@Override
 		public void newStatus(String state) {
 			runOnUiThread(new Runnable() {
 				public void run() {
-					//TextView tv = (TextView) findViewById(R.id.textView1);
-					//DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-					//Date date = new Date();
-					//tv.setText(dateFormat.format(date).toString());
+					//Do nothing.
 				}
 			});
 		}
+
+		@Override
+		public void newStatus(JSONObject jsonObject) {
+			// TODO Auto-generated method stub
+		}
+
+		@Override
+		public void controlXML(JSONObject controlXML) {
+			// TODO Auto-generated method stub
+		}
 	};
-	
+
 	@Override
 	public void onDestroy() {
 		super.onDestroy();
-		service.removeActivity(ACTIVITY_NAME);
+		service.removeActivity(this.getClass().getName());
 		unbindService(svcConn);
 	}
-	
+
 	public void onButtonClicker(View v) {
 		Intent intent;
-
 		switch (v.getId()) {
 		case R.id.main_btn_eclair:
 			intent = new Intent(this, Activity_Eclair.class);
@@ -119,7 +167,6 @@ public class HomeActivity extends DashBoardActivity {
 			public void onClick(DialogInterface dialog, int id) {
 				dialog.dismiss();
 				onYesClick();
-
 			}
 
 		}).setNegativeButton("No", new DialogInterface.OnClickListener() {

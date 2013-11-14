@@ -8,22 +8,29 @@
 
     <!-- ListRow Left side Thumbnail image -->
 
-    <LinearLayout
+    <!--LinearLayout
         android:id="@+id/thumbnail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_marginRight="5dip"
-        android:padding="3dip" >
+        android:padding="3dip"
+    -->
 
-        <ImageView
-            android:id="@+id/controlImage"
-            android:layout_width="40dip"
-            android:layout_height="40dip"
-            android:layout_gravity="top"
-            android:contentDescription="@string/app_name"
-            android:src="@drawable/sunny" />
-    </LinearLayout>
+    <ToggleButton
+        android:id="@+id/controlImage"
+        android:layout_width="40dip"
+        android:layout_height="40dip"
+        android:layout_gravity="top"
+        android:background="@null"
+        android:button="@drawable/check"
+        android:checked="true"
+        android:clickable="false"
+        android:layout_alignParentLeft="true"
+        android:contentDescription="@string/app_name"
+        android:focusable="false" />
+    <!-- /LinearLayout -->
+
 
     <!-- Rightend Arrow -->
 
@@ -44,9 +51,9 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/controlImage"
         android:layout_centerVertical="true"
-        android:layout_marginLeft="75dip"
+        android:layout_marginLeft="40dip"
         android:layout_toRightOf="@+id/controlImage"
-        android:paddingBottom="9dip"
+        android:paddingBottom="5dip"
         android:text="@string/strCity"
         android:textColor="#FFD801"
         android:textSize="15dip"
@@ -63,7 +70,7 @@
         android:layout_alignLeft="@+id/controlName"
         android:layout_below="@+id/controlName"
         android:layout_centerHorizontal="true"
-        android:paddingTop="5dip"
+        android:paddingTop="5dip"	
         android:text="@string/strWeather"
         android:textColor="#FFD801"
         android:textSize="10dip" />
