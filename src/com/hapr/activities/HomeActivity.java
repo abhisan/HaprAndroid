@@ -1,7 +1,6 @@
 package com.hapr.activities;
 
-import java.util.HashMap;
-import java.util.List;
+import java.util.Map;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -26,9 +25,11 @@ import apt.tutorial.IPostMonitor;
 import apt.tutorial.two.PostMonitor;
 
 import com.hapr.HaprApplication;
-import com.hapr.customview.BinderData;
+import com.hapr.entities.Control;
+import com.hapr.utils.ControlXmlUtil;
 import com.hapr.utils.net.NetworkUtil;
 import com.technotalkative.viewstubdemo.R;
+
 public class HomeActivity extends DashBoardActivity {
 	private IPostMonitor service = null;
 
@@ -37,18 +38,17 @@ public class HomeActivity extends DashBoardActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
 		setHeader(getString(R.string.HomeActivityTitle), false, true);
-		String status  = NetworkUtil.getConnectivityStatusString(getApplicationContext());
+		String status = NetworkUtil.getConnectivityStatusString(getApplicationContext());
 		boolean flag = NetworkUtil.isConnectingToInternet(getApplicationContext());
 		Toast.makeText(getApplicationContext(), status, Toast.LENGTH_LONG).show();
+		initializeHapr();
 		bindService(new Intent(this, PostMonitor.class), svcConn, BIND_AUTO_CREATE);
-		Application a = getApplication();
-		HaprApplication ha = (HaprApplication)a;
-		ha.
 	}
 
 	private ServiceConnection svcConn = new ServiceConnection() {
 		public void onServiceConnected(ComponentName className, IBinder binder) {
 			service = (IPostMonitor) binder;
+			//initializeHapr();
 			try {
 				service.registerActivity(this.getClass().getName(), listener);
 			} catch (Throwable t) {
@@ -61,37 +61,41 @@ public class HomeActivity extends DashBoardActivity {
 			service = null;
 		}
 	};
-	
-	public void initializeHapr(){
-		AsyncTask<Void, Void, List<HashMap<String, String>>> task = new AsyncTask<Void, Void, List<HashMap<String, String>>>() {// List<HashMap<String,
+
+	public void initializeHapr() {
+		AsyncTask<Void, Void, Map<String, Control>> task = new AsyncTask<Void, Void, Map<String, Control>>() {
 			@Override
-			protected List<HashMap<String, String>> doInBackground(Void... params) {
+			protected Map<String, Control> doInBackground(Void... params) {
+				Document doc = null;
+				DocumentBuilderFactory docBuilderFactory = DocumentBuilderFactory.newInstance();
 				try {
-					DocumentBuilderFactory docBuilderFactory = DocumentBuilderFactory.newInstance();
 					DocumentBuilder docBuilder = docBuilderFactory.newDocumentBuilder();
-					Document doc = docBuilder.parse(getAssets().open("controldata.xml"));
-					loadControls();
-				} catch (InterruptedException e) {
+					doc = docBuilder.parse(getAssets().open("controldata.xml"));
+
+				} catch (Exception e) {
 					e.printStackTrace();
 				}
-				return optionDataCollection;
+				return ControlXmlUtil.getControls(doc);
 			}
-	
+
 			@Override
-			protected void onPostExecute(List<HashMap<String, String>> result) {
-				BinderData bindingData = new BinderData(getActivity(), result);
-				setListAdapter(bindingData);
+			protected void onPostExecute(Map<String, Control> result) {
+				// BinderData bindingData = new BinderData(this, result);
+				// setListAdapter(bindingData);
+				Application a = getApplication();
+				HaprApplication ha = (HaprApplication) a;
+				ha.loadControls(result);
 			}
 		};
 		task.execute();
 	}
-	
+
 	private IPostListener listener = new IPostListener() {
 		@Override
 		public void newStatus(String state) {
 			runOnUiThread(new Runnable() {
 				public void run() {
-					//Do nothing.
+					// Do nothing.
 				}
 			});
 		}

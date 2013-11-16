@@ -142,7 +142,7 @@ public class Activity_Eclair extends FragmentActivity {
 				ImageView imageView = new ImageView(mContext);
 				// imageView.setImageBitmap(originalImage);
 				imageView.setImageResource(imageId);
-				// imageView.setLayoutParams(new CoverFlow.LayoutParams(150, 150));
+				imageView.setLayoutParams(new CoverFlow.LayoutParams(130, 139));
 				imageView.setScaleType(ScaleType.FIT_CENTER);
 				mImages[index++] = imageView;
 			}

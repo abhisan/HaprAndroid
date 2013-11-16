@@ -8,17 +8,20 @@
 package com.technotalkative.viewstubdemo;
 
 public final class R {
+    public static final class array {
+        public static final int resolution_array=0x7f050000;
+    }
     public static final class attr {
     }
     public static final class color {
-        public static final int foreground1=0x7f040001;
-        public static final int title_background=0x7f040000;
+        public static final int foreground1=0x7f060001;
+        public static final int title_background=0x7f060000;
     }
     public static final class dimen {
-        public static final int text_size_large=0x7f050003;
-        public static final int text_size_medium=0x7f050002;
-        public static final int text_size_small=0x7f050001;
-        public static final int title_height=0x7f050000;
+        public static final int text_size_large=0x7f070003;
+        public static final int text_size_medium=0x7f070002;
+        public static final int text_size_small=0x7f070001;
+        public static final int title_height=0x7f070000;
     }
     public static final class drawable {
         public static final int arrow=0x7f020000;
@@ -61,44 +64,70 @@ public final class R {
         public static final int thunder=0x7f020025;
     }
     public static final class id {
-        public static final int btnFeedback=0x7f08001a;
-        public static final int btnHome=0x7f080017;
-        public static final int controlImage=0x7f08001b;
-        public static final int controlImageArrow=0x7f08001c;
-        public static final int controlName=0x7f08001d;
-        public static final int controlState=0x7f08001e;
-        public static final int coverflow=0x7f080003;
-        public static final int demo_collection_button=0x7f080015;
-        public static final int header=0x7f080001;
-        public static final int imageButtonAlpha=0x7f080008;
-        public static final int list=0x7f080014;
-        public static final int location=0x7f08001f;
-        public static final int main_btn_eclair=0x7f080020;
-        public static final int main_btn_froyo=0x7f080021;
-        public static final int main_btn_gingerbread=0x7f080022;
-        public static final int main_btn_honeycomb=0x7f080023;
-        public static final int main_btn_ics=0x7f080024;
-        public static final int main_btn_jellybean=0x7f080025;
-        public static final int pager=0x7f080002;
-        public static final int panelIconLeft=0x7f080016;
-        public static final int panelIconRight=0x7f080019;
-        public static final int tableRow1=0x7f080005;
-        public static final int tableRow2=0x7f080007;
-        public static final int tableRow3=0x7f08000f;
-        public static final int tableRow4=0x7f08000d;
-        public static final int tableRow5=0x7f080011;
-        public static final int tableRow6=0x7f08000a;
-        public static final int text=0x7f080013;
-        public static final int textView1=0x7f080004;
-        public static final int textView2=0x7f080010;
-        public static final int textView3=0x7f08000b;
-        public static final int textView4=0x7f08000c;
-        public static final int textViewCity=0x7f080006;
-        public static final int textViewCondition=0x7f080012;
-        public static final int textViewTemperature=0x7f080009;
-        public static final int textViewWindSpeed=0x7f08000e;
-        public static final int txtHeading=0x7f080018;
-        public static final int vsHeader=0x7f080000;
+        public static final int address1_decrement=0x7f09000c;
+        public static final int address1_increment=0x7f09000a;
+        public static final int address1_input=0x7f09000b;
+        public static final int address2_decrement=0x7f09000f;
+        public static final int address2_increment=0x7f09000d;
+        public static final int address2_input=0x7f09000e;
+        public static final int address3_decrement=0x7f090012;
+        public static final int address3_increment=0x7f090010;
+        public static final int address3_input=0x7f090011;
+        public static final int address4_decrement=0x7f090015;
+        public static final int address4_increment=0x7f090013;
+        public static final int address4_input=0x7f090014;
+        public static final int btnFeedback=0x7f090034;
+        public static final int btnHome=0x7f090031;
+        public static final int command_input=0x7f09001a;
+        public static final int command_radiogroup=0x7f09001b;
+        public static final int command_streaming=0x7f09001c;
+        public static final int command_videofeed=0x7f09001d;
+        public static final int controlImage=0x7f090035;
+        public static final int controlImageArrow=0x7f090036;
+        public static final int controlName=0x7f090037;
+        public static final int controlState=0x7f090038;
+        public static final int coverflow=0x7f090003;
+        public static final int demo_collection_button=0x7f09002f;
+        public static final int header=0x7f090001;
+        public static final int height_input=0x7f090009;
+        public static final int imageButtonAlpha=0x7f090022;
+        public static final int list=0x7f09002e;
+        public static final int location=0x7f090039;
+        public static final int main_btn_eclair=0x7f09003a;
+        public static final int main_btn_froyo=0x7f09003b;
+        public static final int main_btn_gingerbread=0x7f09003c;
+        public static final int main_btn_honeycomb=0x7f09003d;
+        public static final int main_btn_ics=0x7f09003e;
+        public static final int main_btn_jellybean=0x7f09003f;
+        public static final int mv=0x7f090005;
+        public static final int pager=0x7f090002;
+        public static final int panelIconLeft=0x7f090030;
+        public static final int panelIconRight=0x7f090033;
+        public static final int port_80=0x7f090018;
+        public static final int port_8080=0x7f090019;
+        public static final int port_input=0x7f090016;
+        public static final int port_radiogroup=0x7f090017;
+        public static final int resolution_spinner=0x7f090007;
+        public static final int settings=0x7f090006;
+        public static final int settings_done=0x7f09001e;
+        public static final int tableRow1=0x7f09001f;
+        public static final int tableRow2=0x7f090021;
+        public static final int tableRow3=0x7f090029;
+        public static final int tableRow4=0x7f090027;
+        public static final int tableRow5=0x7f09002b;
+        public static final int tableRow6=0x7f090024;
+        public static final int text=0x7f09002d;
+        public static final int textView1=0x7f090004;
+        public static final int textView2=0x7f09002a;
+        public static final int textView3=0x7f090025;
+        public static final int textView4=0x7f090026;
+        public static final int textViewCity=0x7f090020;
+        public static final int textViewCondition=0x7f09002c;
+        public static final int textViewTemperature=0x7f090023;
+        public static final int textViewWindSpeed=0x7f090028;
+        public static final int txtHeading=0x7f090032;
+        public static final int vsHeader=0x7f090000;
+        public static final int width_input=0x7f090008;
     }
     public static final class layout {
         public static final int activity_eclair=0x7f030000;
@@ -108,41 +137,62 @@ public final class R {
         public static final int activity_honeycomb=0x7f030004;
         public static final int activity_ics=0x7f030005;
         public static final int activity_jellybean=0x7f030006;
-        public static final int detailpage=0x7f030007;
-        public static final int fragment_pager_list=0x7f030008;
-        public static final int fragment_section_launchpad=0x7f030009;
-        public static final int header=0x7f03000a;
-        public static final int list_row=0x7f03000b;
-        public static final int main=0x7f03000c;
+        public static final int camera_main=0x7f030007;
+        public static final int camera_option_menu=0x7f030008;
+        public static final int camera_settings=0x7f030009;
+        public static final int detailpage=0x7f03000a;
+        public static final int fragment_pager_list=0x7f03000b;
+        public static final int fragment_section_launchpad=0x7f03000c;
+        public static final int header=0x7f03000d;
+        public static final int list_row=0x7f03000e;
+        public static final int main=0x7f03000f;
     }
     public static final class string {
-        public static final int EclairActivityTitle=0x7f060004;
-        public static final int FeedbackActivityTitle=0x7f060003;
-        public static final int FroyoActivityTitle=0x7f060005;
-        public static final int GingerbreadActivityTitle=0x7f060006;
+        public static final int EclairActivityTitle=0x7f040016;
+        public static final int FeedbackActivityTitle=0x7f040015;
+        public static final int FroyoActivityTitle=0x7f040017;
+        public static final int GingerbreadActivityTitle=0x7f040018;
         /**  Activity Titles 
          */
-        public static final int HomeActivityTitle=0x7f060002;
-        public static final int HoneycombActivityTitle=0x7f060007;
-        public static final int ICSActivityTitle=0x7f060008;
-        public static final int JellyBeanActivityTitle=0x7f060009;
-        public static final int Separator=0x7f060013;
-        public static final int app_name=0x7f060000;
+        public static final int HomeActivityTitle=0x7f040014;
+        public static final int HoneycombActivityTitle=0x7f040019;
+        public static final int ICSActivityTitle=0x7f04001a;
+        public static final int JellyBeanActivityTitle=0x7f04001b;
+        public static final int Separator=0x7f040025;
+        public static final int address_dot=0x7f040008;
+        public static final int app_name=0x7f040012;
+        public static final int command_setting_label=0x7f040005;
+        public static final int command_streaming=0x7f04000d;
+        public static final int command_streaming_with_explanation=0x7f04000f;
+        public static final int command_videofeed=0x7f04000e;
+        public static final int command_videofeed_with_explanation=0x7f040010;
+        public static final int digits_decrement=0x7f040007;
+        public static final int digits_increment=0x7f040006;
         /**  Weather  
          */
-        public static final int hello_world=0x7f06000a;
-        public static final int menu_settings=0x7f06000b;
-        public static final int strCity=0x7f06000d;
-        public static final int strTemp=0x7f06000f;
-        public static final int strWeather=0x7f06000e;
-        public static final int strWindSpeed=0x7f060011;
-        public static final int title_activity_weather=0x7f06000c;
-        public static final int txtDemo=0x7f060001;
-        public static final int txtTemp=0x7f060010;
-        public static final int txtWindSpeed=0x7f060012;
+        public static final int hello_world=0x7f04001c;
+        public static final int ip_setting_label=0x7f040003;
+        public static final int menu_settings=0x7f04001d;
+        public static final int port_80=0x7f040009;
+        public static final int port_8080=0x7f04000a;
+        public static final int port_8080_with_explanation=0x7f04000c;
+        public static final int port_80_with_explanation=0x7f04000b;
+        public static final int port_setting_label=0x7f040004;
+        public static final int resolution_label=0x7f040001;
+        public static final int resolution_times=0x7f040002;
+        public static final int settings=0x7f040000;
+        public static final int settings_done=0x7f040011;
+        public static final int strCity=0x7f04001f;
+        public static final int strTemp=0x7f040021;
+        public static final int strWeather=0x7f040020;
+        public static final int strWindSpeed=0x7f040023;
+        public static final int title_activity_weather=0x7f04001e;
+        public static final int txtDemo=0x7f040013;
+        public static final int txtTemp=0x7f040022;
+        public static final int txtWindSpeed=0x7f040024;
     }
     public static final class style {
-        public static final int HomeButton=0x7f070001;
-        public static final int heading_text=0x7f070000;
+        public static final int HomeButton=0x7f080001;
+        public static final int heading_text=0x7f080000;
     }
 }

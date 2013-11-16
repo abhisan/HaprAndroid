@@ -6,6 +6,7 @@
        	<location>Kitchen</location>
   		<state>Off</state>
   		<icon>device_ac_sleep_off</icon>
+  		<type>light</type>
 	</optiondata>
 	
 	<optiondata>
@@ -14,14 +15,18 @@
 		<location>Hall</location>
      	<state>On</state>
 		<icon>device_ac_sleep_on</icon>
+ 		<type>light</type>
+		
 	</optiondata>
 	
 	<optiondata>
 	    <id>3</id>
 		<control>Dimmer Light</control>
-		<location>Guest Room</location>
+		<location>Hall</location>
      	<state>On</state>
 		<icon>device_ac_sleep_on</icon>
+		 		<type>light</type>
+		
 	</optiondata>
 	
 	<optiondata>
@@ -30,6 +35,8 @@
 		<location>Hall</location>
      	<state>On</state>
 		<icon>device_ac_sleep_on</icon>
+		 		<type>light</type>
+		
 	</optiondata>
 	
 	<optiondata>
@@ -38,6 +45,8 @@
 		<location>Hall</location>
      	<state>On</state>
 		<icon>device_ac_sleep_on</icon>
+		 		<type>light</type>
+		
 	</optiondata>
 	
 	<optiondata>
@@ -46,6 +55,8 @@
 		<location>Hall</location>
      	<state>On</state>
 		<icon>device_ac_sleep_off</icon>
+		 		<type>light</type>
+		
 	</optiondata>
 		
 	<optiondata>
@@ -54,6 +65,8 @@
 		<location>Hall</location>
      	<state>On</state>
 		<icon>device_ac_sleep_on</icon>
+		 		<type>light</type>
+		
 	</optiondata>
 		
 	<optiondata>
@@ -62,6 +75,8 @@
 		<location>Hall</location>
      	<state>On</state>
 		<icon>device_ac_sleep_on</icon>
+		 		<type>light</type>
+		
 	</optiondata>
 	
 </Options>
